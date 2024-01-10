@@ -13,7 +13,7 @@ const App = () => {
       return;
     }
 
-    setFullName(`${firstName} ${lastName}`);
+    setFullName(`${firstName.trim()} ${lastName.trim()}`);
   };
 
   return (
@@ -27,6 +27,7 @@ const App = () => {
           placeholder="First Name"
           value={firstName}
           onChange={(event) => setFirstName(event.target.value)}
+          required // Input is required
         />
       </div>
       <div>
@@ -37,9 +38,12 @@ const App = () => {
           placeholder="Last Name"
           value={lastName}
           onChange={(event) => setLastName(event.target.value)}
+          required // Input is required
         />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" disabled={!firstName || !lastName}>
+        Submit
+      </button>
       {fullName && <p>{`Full Name: ${fullName}`}</p>}
     </form>
   );
