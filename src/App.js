@@ -8,7 +8,8 @@ const App = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (firstName === "" || lastName === "") {
+    if (firstName.trim() === "" || lastName.trim() === "") {
+      setFullName(""); // Clear full name if any field is empty
       return;
     }
 
