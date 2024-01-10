@@ -8,12 +8,13 @@ const App = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (firstName.trim() === "" || lastName.trim() === "") {
-      setFullName(""); // Clear full name if any field is empty
+    if (!/^[a-zA-Z]*$/.test(firstName) || !/^[a-zA-Z]*$/.test(lastName)) {
+      // If input contains anything other than letters
+      setFullName(""); // Clear full name if invalid input
       return;
     }
 
-    setFullName(`${firstName} ${lastName}`);
+    setFullName(`${firstName.trim()} ${lastName.trim()}`);
   };
 
   return (
