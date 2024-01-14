@@ -39,14 +39,14 @@ const FullNameForm = () => {
         </label>
         <br />
         <button type="submit" data-testid="submit-button">Submit</button>
-        {fullName && (
-        <div data-testid="full-name-display">
-          <p data-testid="displayed-full-name"><b>Full Name:</b>{fullName}</p>
-        </div>
-      )}
       </form>
 
-     
+      {fullName && (
+        <div data-testid="full-name-display">
+          <h3>Full Name:</h3>
+          <p data-testid="displayed-full-name">{fullName}</p>
+        </div>
+      )}
     </div>
   );
 };
