@@ -24,24 +24,25 @@ const FullNameForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="name-form">
+        <h1>Display Full Name</h1>
         <label>
           First Name:
-          <input type="text" value={firstName} onChange={handleFirstNameChange} />
+          <input type="text" value={firstName} onChange={handleFirstNameChange} data-testid="first-name-input" />
         </label>
         <br />
         <label>
           Last Name:
-          <input type="text" value={lastName} onChange={handleLastNameChange} />
+          <input type="text" value={lastName} onChange={handleLastNameChange} data-testid="last-name-input" />
         </label>
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit" data-testid="submit-button">Submit</button>
       </form>
 
       {fullName && (
-        <div>
-          <h2>Full Name:</h2>
-          <p>{fullName}</p>
+        <div data-testid="full-name-display">
+          <h2 data-testid="full-name-heading">Full Name:</h2>
+          <p data-testid="full-name-content">{fullName}</p>
         </div>
       )}
     </div>
