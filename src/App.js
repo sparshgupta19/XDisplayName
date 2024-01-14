@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 const FullNameForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [fullName, setFullName] = useState('');
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);
@@ -17,11 +16,6 @@ const FullNameForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    if (firstName && lastName) {
-      const fullNameResult = `${firstName} ${lastName}`;
-      setFullName(fullNameResult);
-    }
   };
 
   return (
@@ -41,10 +35,10 @@ const FullNameForm = () => {
         <button type="submit" data-testid="submit-button">Submit</button>
       </form>
 
-      {fullName && (
+      {firstName && lastName && (
         <div data-testid="full-name-display">
           <h3>Full Name:</h3>
-          <p data-testid="displayed-full-name">{fullName}</p>
+          <p data-testid="displayed-full-name">{`${firstName} ${lastName}`}</p>
         </div>
       )}
     </div>
