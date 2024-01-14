@@ -1,3 +1,5 @@
+// FullNameForm.jsx
+
 import React, { useState } from 'react';
 
 const FullNameForm = () => {
@@ -24,8 +26,8 @@ const FullNameForm = () => {
 
   return (
     <div>
+      <h2>Full Name Display</h2>
       <form onSubmit={handleSubmit} data-testid="name-form">
-        <h1>Display Full Name</h1>
         <label>
           First Name:
           <input type="text" value={firstName} onChange={handleFirstNameChange} data-testid="first-name-input" />
@@ -41,8 +43,7 @@ const FullNameForm = () => {
 
       {fullName && (
         <div data-testid="full-name-display">
-          <h2 data-testid="full-name-heading">Full Name:</h2>
-          <p data-testid="full-name-content">{fullName}</p>
+          <p data-testid="displayed-full-name">{fullName}</p>
         </div>
       )}
     </div>
