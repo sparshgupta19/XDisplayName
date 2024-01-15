@@ -1,48 +1,47 @@
-// FullNameForm.jsx
+import React, { useState } from "react";
 
-import React, { useState } from 'react';
+function FullNameDisplay() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
 
-const FullNameForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-
-  const handleFirstNameChange = (event) => {
-    setFirstName(event.target.value);
+  const handleFirstNameChange = (e) => {
+    setFirstName(e.target.value);
   };
 
-  const handleLastNameChange = (event) => {
-    setLastName(event.target.value);
+  const handleLastNameChange = (e) => {
+    setLastName(e.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (firstName.trim() !== "" || lastName.trim() !== "") {
+      setFullName(`${firstName} ${lastName}`);
+    }
   };
 
   return (
-    <div>
-      <h2>Full Name Display</h2>
-      <form onSubmit={handleSubmit} data-testid="name-form">
-        <label>
-          First Name:
-          <input type="text" value={firstName} onChange={handleFirstNameChange} data-testid="first-name-input" />
-        </label>
-        <br />
-        <label>
-          Last Name:
-          <input type="text" value={lastName} onChange={handleLastNameChange} data-testid="last-name-input" />
-        </label>
-        <br />
-        <button type="submit" data-testid="submit-button">Submit</button>
-      </form>
+    <form>
+      <h1>Full Name Display</h1>
 
-      {firstName && lastName && (
-        <div data-testid="full-name-display">
-          <h3>Full Name:</h3>
-          <p data-testid="displayed-full-name">{`${firstName} ${lastName}`}</p>
-        </div>
-      )}
-    </div>
+      <div>
+        <label>First Name:</label>
+        <input type="text" value={firstName} onChange={handleFirstNameChange} />
+      </div>
+
+      <div>
+        <label>Last Name:</label>
+        <input type="text" value={lastName} onChange={handleLastNameChange} />
+      </div>
+
+      <div>
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
+
+      {fullName && <p>Full Name: {fullName}</p>}
+    </form>
   );
-};
+}
 
-export default FullNameForm;
+export default FullNameDisplay;
