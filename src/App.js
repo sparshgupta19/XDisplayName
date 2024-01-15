@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function FullNameDisplay() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [fullName, setFullName] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [fullName, setFullName] = useState('');
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -16,13 +16,13 @@ function FullNameDisplay() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (firstName.trim() !== "" || lastName.trim() !== "") {
+    if (firstName.trim() !== '' || lastName.trim() !== '') {
       setFullName(`${firstName} ${lastName}`);
     }
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h1>Full Name Display</h1>
 
       <div>
@@ -36,7 +36,7 @@ function FullNameDisplay() {
       </div>
 
       <div>
-        <button onClick={handleSubmit}>Submit</button>
+        <button type="submit">Submit</button>
       </div>
 
       {fullName && <p>Full Name: {fullName}</p>}
