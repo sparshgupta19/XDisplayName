@@ -38,8 +38,9 @@ function FullNameDisplay() {
       <div>
         <button type="submit">Submit</button>
       </div>
-
+      <form>
       {fullName && <p data-testid="full-name">Full Name: {fullName}</p>}
+      </form>
     </form>
   );
 }
