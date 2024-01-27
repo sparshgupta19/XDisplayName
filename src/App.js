@@ -21,7 +21,7 @@ function FullNameDisplay() {
     }
   };
 
-  return (
+  return (<div>
     <form onSubmit={handleSubmit}>
       <h1>Full Name Display</h1>
 
@@ -38,10 +38,12 @@ function FullNameDisplay() {
       <div>
         <button type="submit">Submit</button>
       </div>
-      <form>
-      {fullName && <p data-testid="full-name">Full Name: {fullName}</p>}
-      </form>
+      
     </form>
+    <form>
+      {fullName && <p >Full Name: {fullName}</p>}
+      </form>
+      </div>
   );
 }
 
